@@ -8,13 +8,15 @@ publish = false
 
 [lib]
 crate-type = ["cdylib"]
-doctest = false
 
 [dependencies]
 soroban-sdk = "20.0.0"
 
 [dev_dependencies]
 soroban-sdk = { version = "20.0.0", features = ["testutils"] }
+
+[features]
+testutils = ["soroban-sdk/testutils"]
 
 [profile.release]
 opt-level = "z"
