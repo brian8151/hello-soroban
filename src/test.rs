@@ -1,13 +1,11 @@
-#![cfg(test)]
-
-use super::*;
+use crate::{Contract, ContractClient};
 use soroban_sdk::{symbol_short, vec, Env};
 
 #[test]
-fn test() {
+fn hello() {
     let env = Env::default();
-    let contract_id = env.register_contract(None, HelloContract);
-    let client = HelloContractClient::new(&env, &contract_id);
+    let contract_id = env.register_contract(None, Contract);
+    let client = ContractClient::new(&env, &contract_id);
 
     let words = client.hello(&symbol_short!("Dev"));
     assert_eq!(
